@@ -51,11 +51,7 @@ typedef struct udp_hdr
 }udp_hdr;
 udp_hdr *udp;
 int i=0;
-void my_packet_handler(
-    u_char *args,
-    const struct pcap_pkthdr *header,
-    const u_char *packet
-)
+void my_packet_handler(u_char *args, const struct pcap_pkthdr *header, const u_char *packet)
 {
     struct ether_header *eth_header;
     eth_header = (struct ether_header *) packet;
@@ -147,7 +143,6 @@ void my_packet_handler(
 }
 
 int main(int argc, char **argv) {
-    char *device = "eth0";
     char filename[80];
     char error_buffer[PCAP_ERRBUF_SIZE];
     pcap_t *handle;
