@@ -68,8 +68,10 @@ void my_packet_handler(u_char *args, const struct pcap_pkthdr *header, const u_c
 
     printf("ethernet header information:\n");
     ethernet=(eth_hdr *)packet;
-    printf("src_mac : %02x-%02x-%02x-%02x-%02x-%02x\n",ethernet->src_mac[0],ethernet->src_mac[1],ethernet->src_mac[2],ethernet->src_mac[3],ethernet->src_mac[4],ethernet->src_mac[5]);
-    printf("dst_mac : %02x-%02x-%02x-%02x-%02x-%02x\n",ethernet->dst_mac[0],ethernet->dst_mac[1],ethernet->dst_mac[2],ethernet->dst_mac[3],ethernet->dst_mac[4],ethernet->dst_mac[5]);
+    printf("src_mac : %02x-%02x-%02x-%02x-%02x-%02x\n",ethernet->src_mac[0],ethernet->src_mac[1],ethernet->src_mac[2],
+           ethernet->src_mac[3],ethernet->src_mac[4],ethernet->src_mac[5]);
+    printf("dst_mac : %02x-%02x-%02x-%02x-%02x-%02x\n",ethernet->dst_mac[0],ethernet->dst_mac[1],ethernet->dst_mac[2],
+           ethernet->dst_mac[3],ethernet->dst_mac[4],ethernet->dst_mac[5]);
     printf("ethernet type : %u\n\n",ethernet->eth_type);
 
     if(ntohs(ethernet->eth_type)==0x0800){
